@@ -8,6 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.prepend(video);
 });
 
+ const music = new Audio('/sounds/story-music.wav');
+    music.loop = true;
+
+    const toggleMusicButton = document.getElementById('toggle-music-button');
+    let isMusicPlaying = false;
+
+    if (toggleMusicButton) {
+        toggleMusicButton.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                music.pause();
+                toggleMusicButton.textContent = '🎵'; 
+            } else {
+                music.play().then(() => {
+                    toggleMusicButton.textContent = '🔇'; 
+                }).catch((error) => {
+                    console.error('Kunde inte spela musik:', error);
+                    alert('Musiken kunde inte spelas upp. Var god och kontrollera inställningarna.');
+                });
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+    } else {
+        console.error('Kan inte hitta musikknappen i DOM:en.');
+    }
+
 document.addEventListener('DOMContentLoaded', () => {
     const gameImage = document.getElementById('game-image');
     gameImage.addEventListener('click', () => {

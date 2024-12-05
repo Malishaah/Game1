@@ -8,6 +8,30 @@
     z-index: -1;
 }
 
+.music-button {
+    position: absolute;
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 10; 
+    font-size: 40px;
+    background-color: #ff3f8c;
+    border: solid;
+    border-radius: 50%;
+    border-color: #fff;
+    padding: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 0px #7c16d0,
+    2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.music-button:hover {
+    background-color: #a33cfd;
+}
+
+
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -52,7 +76,6 @@ font-size: 50px;
     border-width: 5px;
     border-radius: 15px;
     padding: 0px 20px 10px;
-    margin-top: 100px;
 
 }
  

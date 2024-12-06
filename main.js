@@ -43,3 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//second page
+  const settingsButton = document.querySelector('.settings-button');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+
+  settingsButton.addEventListener('click', () => {
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.menu-container')) {
+      dropdownMenu.style.display = 'none';
+    }
+  });

@@ -112,7 +112,7 @@ body {
 #image1 {
     margin-left: 500px;
     max-width: 600px;
-    border-radius: 15px;
+    border-radius: 50%;
     box-shadow: 15px 0px 30px rgba(0, 0, 0, 0.8);
 }
 
@@ -129,7 +129,7 @@ body {
           font-family: 'times new roman', cursive;
           color: #ffffff;
           text-shadow: 2px 2px 0px  #3700ad;
-            background-color: rgba(254, 46, 139, 0.5);
+            background-color: rgba(254, 46, 139, 0.3);
             border-left: dotted;
             border-right: dotted;
             border-radius: 15px;
@@ -140,13 +140,28 @@ body {
 
    .text {
     align-items: left;
-    background-color: rgba(254, 46, 139, 0.5);
+    background-color: rgba(254, 46, 139, 0.3);
     padding: 40px 30px;
     font-size: 30px;
     color: white;
     font-family: "Times New Roman";
     text-shadow: 2px 2px 0px #3700ad;
-    border-radius: 0px 100px / 100px;
+    border-radius: 25px 100px / 100px;
     width: 350px;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    margin-left: 150px;
+    border: solid;
+    border-radius: 50%;
+    border-color: #fff;
+    box-shadow: 8px 0px 30px rgba(255, 242, 0, 0.9);
+    transition: transform 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.2);
 }
 

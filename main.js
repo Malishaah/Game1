@@ -1,3 +1,4 @@
+//video bakgrund
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.createElement('video');
     video.src = '/videos/Star.mp4';
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.prepend(video);
 });
 
+//musik
  const music = new Audio('/sounds/story-music.wav');
     music.loop = true;
 
@@ -56,3 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
       dropdownMenu.style.display = 'none';
     }
   });
+
+// Hantera klick på bild och navigering
+const image1 = document.getElementById('imagebutton1');
+const image2 = document.getElementById('imagebutton2');
+
+if (image1) {
+    image1.addEventListener('click', () => {
+
+        window.location.href = ' ?? ';
+        image1.classList.toggle('clicked');
+    });
+}
+
+if (image2) {
+    image2.addEventListener('click', () => {
+        window.location.href = 'https://www.exempel2.com';
+        image2.classList.toggle('clicked');
+    });
+}

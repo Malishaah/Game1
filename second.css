@@ -10,16 +10,15 @@
 
 .music-button {
     position: fixed;
-    top: 10px;
-    left: 10px; 
-    bottom: 89%; 
+    top: 9px;
+    left: 90px; 
     z-index: 10; 
     font-size: 40px;
     background-color: #ff3f8c;
     border: solid;
     border-radius: 50%;
     border-color: #fff;
-    padding: 10px;
+    padding: 9px 11px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
     text-shadow: 1px 1px 0px #7c16d0,
     2px 2px 2px rgba(0, 0, 0, 0.3);
@@ -35,20 +34,14 @@
     top: 90px;
     left: 10px;  
     z-index: 10; 
-    font-size: 40px;
-    background-color: #ff3f8c;
-    border: solid;
-    border-radius: 50%; 
-    border-color: #fff;
-    padding: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-    text-shadow: 1px 1px 0px #7c16d0,
-    2px 2px 2px rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    background-color: #ffffff;
+    padding: 20px 15px 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 2px rgba(174, 1, 255, 0.3);
     transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.settings-link:hover {
-    background-color: #a33cfd;
+    --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
+    mask: var(--g) 100% 100%/30% 60%,var(--g) 70% 0/50% 100%,var(--g) 0 100%/36% 68%,var(--g) 27% 18%/26% 40%,linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
 }
 
 .menu-container {
@@ -66,7 +59,7 @@
     border: solid;
     border-radius: 50%;
     border-color: #fff;
-    padding: 7px 10px;
+    padding: 9px 11px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
     text-shadow: 1px 1px 0px #7c16d0,
     2px 2px 2px rgba(0, 0, 0, 0.3);
@@ -79,16 +72,16 @@
   }
   
   .dropdown-menu a {
-    top: ;
     display: block;
-    color: rgb(255, 255, 255);
-    text-decoration: none; 
-    padding: 8px 15px;
-    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
   }
   
   .dropdown-menu a:hover {
-    background-color: #f1f1f1; 
+    background-color: #729cff;
+    color: #fff;
+    text-shadow: 1px 1px 0px #7c16d0,
+    2px 2px 2px rgba(0, 0, 0, 0.3);
   }
   
   .menu-container:hover .dropdown-menu {
@@ -105,52 +98,55 @@ body {
 }
   
 #game-container {
-    align-items: center;
-    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px 100px;
+    grid-template-areas:
+      "a b"
+      "a b";
 }
-#overlay-content {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-    .header {
-        font-size: 30px;
-          font-family: 'times new roman', cursive;
-          color: #ffffff;
-          text-shadow: 2px 2px 0px  #3700ad;
-            background-color: #ff418d;
-            border-left: dotted;
-            border-right: dotted;
-            border-width: 5px;
-            border-radius: 15px;
-            padding: 10px;
-            width: 400px;
-
-        }
-
-   .text {
-    align-items: left;
-    background-color: rgba(254, 46, 139, 0.8);
-    padding: 10px;
-    margin-right: 250px;
-    margin-bottom: 400px;
-    font-size: 30px;
-    color: white;
-    font-family: "Times New Roman";
-    text-shadow: 2px 2px 0px #3700ad;
-    border-radius: 10px 100px / 120px;
-    width: 410px;
-    
+#imageclass{
+    grid-area:b;
 }
 
 #image1 {
     margin-left: 500px;
     max-width: 600px;
-    height: auto;
     border-radius: 15px;
     box-shadow: 15px 0px 30px rgba(0, 0, 0, 0.8);
+}
+
+.content {
+    grid-area: a;
+    position: absolute;
+    top: 10%;
+    left: 13%;
+    
+}
+
+    .header {
+        font-size: 34px;
+          font-family: 'times new roman', cursive;
+          color: #ffffff;
+          text-shadow: 2px 2px 0px  #3700ad;
+            background-color: rgba(254, 46, 139, 0.5);
+            border-left: dotted;
+            border-right: dotted;
+            border-radius: 15px;
+            padding: 10px 0px 10px 23px;
+            width: 380px;
+
+        }
+
+   .text {
+    align-items: left;
+    background-color: rgba(254, 46, 139, 0.5);
+    padding: 40px 30px;
+    font-size: 30px;
+    color: white;
+    font-family: "Times New Roman";
+    text-shadow: 2px 2px 0px #3700ad;
+    border-radius: 0px 100px / 100px;
+    width: 350px;
 }
 

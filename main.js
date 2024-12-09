@@ -1,3 +1,6 @@
+const settingsButton = document.querySelector('.settings-button');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+
 //video bakgrund
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.createElement('video');
@@ -46,18 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //second page
-  const settingsButton = document.querySelector('.settings-button');
-  const dropdownMenu = document.querySelector('.dropdown-menu');
-
   settingsButton.addEventListener('click', () => {
     dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
   });
 
   document.addEventListener('click', (event) => {
-    if (!event.target.closest('.menu-container')) {
-      dropdownMenu.style.display = 'none';
+    if(event.target.id === 'start-button') {
+        const playerName = playerNameInput.value.trim();
+        if (!playerName) {
+          alert("Skriv ditt namn för att börja!");
+          return;
+        }
+        gameContainer.style.display='block'
+        gameStartContainer.style.display='none'
+        localStorage.setItem("playerName", playerName); // Save player name
+        title.textContent = `Välkommen, ${playerName}!`;
+       title.style.display='block'
+        // Load saved progress or start from the beginning
+        const savedStory = localStorage.getItem("currentStory");
+        renderStory(savedStory ? parseInt(savedStory, 10) : 1);
     }
-  });
 
 // Hantera klick på bild och navigering
 const image1 = document.getElementById('imagebutton1');

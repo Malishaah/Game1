@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link rel="stylesheet" href="second.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=The+Girl+Next+Door&display=swap" rel="stylesheet">
@@ -18,18 +18,23 @@
         </div>
       </div>
 
-    <div id="game-container">
+      <div id="game-container">
         <div id="imageclass">
-        <img id="image1" class="content" src="/images/img1.jpg" alt="Askungen med mors grav">
-    </div>
-    <div class="content">
-        <h1 class="header">Moderns löfte och trädet</h1>
-        <p class="text">Det var en gång en flicka som planterade ett träd på sin mors grav, i enlighet med moderns sista önskan. Trädet lovade magi, hopp och hjälp i svåra tider. Men allt berodde på hur flickan valde att använda det.</p>
+        <img id="image-container" class="content" alt="Askungen">
+        
+        <div id="shoe-container" style="display: none;">
+          <p>Klicka på skon för att ta den:</p>
+          <img id="shoe-image" src="shoe.png" alt="Glas-sko" style="cursor: pointer; width: 150px;">
+          <button id="next-button" style="display: none;">Nästa</button>
+        </div>
+        
+    <div id="content" class="content">
+        <h1 id="textheader"class="header"></h1>
+        <p id="textmain" class="text"></p>
+        <div id="choices"></div>
        <div id="images">
-        <img id="imagebutton1" src="" alt="" class="image">
-        <!-- <img id="image2" src="https://via.placeholder.com/150" alt="Bild 2" class="image"> -->
-      </div>
     </div>
+  </div>
     <script src="main.js"></script>
 </body>
 </html>

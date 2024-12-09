@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //musik
- const music = new Audio('/sounds/story-music.wav');
+ const music = new Audio('/musics/story-music.wav');
     music.loop = true;
 
     const toggleMusicButton = document.getElementById('toggle-music-button');

@@ -10,6 +10,7 @@ const dropdownMenu = document.querySelector('.dropdown-menu');
 const video = document.createElement('video');
 const startbutton = document.querySelector('.start-button');
 const imageContainer = document.getElementById('image-container')
+const shoeContainer = document.getElementById("shoe-container");
 
 //video bakgrund
 document.addEventListener('DOMContentLoaded', () => {
@@ -48,7 +49,7 @@ const story = {
       text: "Vid midnatt måste Askungen fly. Hennes sko fastnar i trappan. Vad ska hon göra?",
       choices: [
         { text: "Lämna skon", next: 4 },
-        { text: "Ta skon", next: 5 }
+        { text: "Ta skon", next: 5 ,action: () => showShoeOption(5)}
       ]
     },
     4: {
@@ -64,6 +65,18 @@ const story = {
       choices: [{ text: "Börja om", next: 1 }]
     }
   };
+  // story[3] = {
+  //   title: "Ett svårt val",
+  //   text: "Vid midnatt måste Askungen fly. Hennes sko fastnar i trappan. Vad ska hon göra?",
+  //   img:"/images/img3.jpg",
+  //   choices: [
+  //     {
+  //       text: "Ta skon",
+  //       next: 5, // Nästa del av berättelsen
+  //       action: () => showShoeOption(5) // Aktivera sko-funktionen
+  //     }
+  //   ]
+  // }
 
   // Render story
   function renderStory(storyId) {
@@ -72,10 +85,12 @@ const story = {
     storyTitle.textContent = currentStory.title;
     storyText.textContent = currentStory.text;
     choicesContainer.innerHTML = ""; // Clear old buttons
-    
+    imageContainer.setAttribute('src',currentStory.img);
+    console.log(currentStory)
     currentStory.choices.forEach(choice => {
       const button = document.createElement("button");
       button.textContent = choice.text;
+      button.className='start-button'
       button.onclick = () => {
         if (choice.action) {
           choice.action(); // Kör action om den finns
@@ -154,6 +169,27 @@ document.addEventListener('DOMContentLoaded', () => {
           gameStartContainer.style.display='block'
           playerNameInput.style.display='inline-block';
           startbutton.text="Börja och spela"
+          shoeContainer.style.display='none'
       }
-
-      
+    });
+        
+    // Funktion för att visa skon och hantera klick
+  function showShoeOption(nextStoryId) {
+  const shoeContainer = document.getElementById("shoe-container");
+  const shoeImage = document.getElementById("shoe-image");
+  const button = document.createElement("button");
+  button.className='start-button'
+  choicesContainer.innerHTML = ""; // Clear old buttons
+  // Visa sko-sektionen
+  shoeContainer.style.display = "block";
+  button.textContent = 'Fortsätt';
+  button.onclick = () => {
+    renderStory(5);
+  } 
+  // Hantera klick på skon
+  shoeImage.onclick = () => {
+    alert("Du har tagit skon!");
+    shoeContainer.style.display = "none";
+    choicesContainer.appendChild(button);
+  };
+}

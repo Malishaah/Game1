@@ -8,14 +8,45 @@
     z-index: -1;
 }
 
+.next-button {
+    font-size: 25px;
+    margin-left: 5px;
+    background-color: #ff3f8c;
+    color: white;
+    font-family: 'The Girl Next Door', cursive;
+    font-weight: bolder;
+    border: solid;
+    border-radius: 20px;
+    border-color: #fff;
+    padding: 10px 10px 0px;
+
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 0px #7c16d0,
+    2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.next-button:hover {
+    background-color: #a33cfd;
+}
+
 .titleheader{
     position: fixed;
+    left: 40%;
     top:0px;
+    font-family:'Times New Roman', Times, serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px  #3700ad,
+                 4px 4px 0px hsl(337, 97%, 58%),
+                 6px 6px 0px #dda301,
+                 8px 8px 0px #00c989,
+                 10px 10px 0px #553c9a;
+    font-weight: bold;
+    font-size: 35px;
 }
 
 #player-name {
     border: solid;
-    border-radius: 2;
+    border-radius: 20px;
     border-width: 5px;
     border-color: #ff418d;
     background-color: #ffffff;
@@ -25,8 +56,8 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
     font-size: 1em;
     margin-left: 10px;
-
 }
+
 .music-button {
     position: fixed;
     top: 9px;
@@ -186,6 +217,24 @@ body {
     transform: scale(1.2);
 }
 
+#shoe-image {
+    position:absolute;
+    left: 350px;
+    margin-top: 20px;
+    border: solid;
+    border-radius: 30px;
+    border-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease;
+    z-index: 1;
+}
+
+#shoe-image:hover {
+    transform: scale(1.1);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
 #game-container {
     text-align: left;
 }
@@ -224,36 +273,41 @@ body {
 }
      
 .start-button {
-    font-size: 1.5em;
-    margin-left: 5px;
+    position:fixed;
+    top: 110%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    margin: 0;
     font-family: "The Girl Next Door", cursive;
-    font: bolder;
+    font-weight: bolder;
     padding: 10px 20px;
     color: rgb(255, 255, 255);
     background-color: #ff3f8c;
     border: solid;
-    border-radius: 30pc;
+    border-radius: 50%;
     border-color: #ffffff;
     box-shadow: 10px 5px 20px #262626;
     cursor: pointer;
     text-shadow: 2px 2px 0px #7c16d0,
     4px 4px 3px rgba(0, 0, 0, 0.4);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.4s ease, transform 0.7s ease;
 }
         
 .start-button:hover {
     background-color: #a33cfd; 
-    transform: scale(1.05);
 }
     
 .cp {
     position: absolute;
-    left: 800px;
+    bottom:0;
+    right: 0;
+    text-align: end;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     color: white;
     text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.9);
-    margin-top: 50px;
+    margin: 0px;
+    padding: 30px;
 }
     
 

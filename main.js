@@ -90,7 +90,7 @@ const story = {
     currentStory.choices.forEach(choice => {
       const button = document.createElement("button");
       button.textContent = choice.text;
-      button.className='start-button'
+      button.className='next-button'
       button.onclick = () => {
         if (choice.action) {
           choice.action(); // Kör action om den finns
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
           gameContainer.style.display='none'
           gameStartContainer.style.display='block'
           playerNameInput.style.display='inline-block';
-          startbutton.text="Börja och spela"
+          startbutton.text="Spela"
           shoeContainer.style.display='none'
       }
     });
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const shoeContainer = document.getElementById("shoe-container");
   const shoeImage = document.getElementById("shoe-image");
   const button = document.createElement("button");
-  button.className='start-button'
+  button.className='next-button'
   choicesContainer.innerHTML = ""; // Clear old buttons
   // Visa sko-sektionen
   shoeContainer.style.display = "block";

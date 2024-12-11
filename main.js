@@ -1,10 +1,18 @@
+const title = document.getElementById("title");
+const storyTitle = document.getElementById('textheader');
+const storyText = document.getElementById('textmain');
+const choicesContainer = document.getElementById("choices");
+const playerNameInput = document.getElementById("player-name");
+const gameStartContainer = document.getElementById("game-start-container");
+const gameContainer = document.getElementById("game-container");
 const settingsButton = document.querySelector('.settings-button');
-  const dropdownMenu = document.querySelector('.dropdown-menu');
-  const video = document.createElement('video');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+const video = document.createElement('video');
+const startbutton = document.querySelector('.start-button');
+const imageContainer = document.getElementById('image-container')
 
 //video bakgrund
 document.addEventListener('DOMContentLoaded', () => {
-    
     video.src = '/videos/Star.mp4';
     video.autoplay = true;
     video.loop = true;
@@ -18,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
       playerNameInput.style.display='none';
       playerNameInput.value=savedName;
       startbutton.text="Fortsätt"
-
     }
 });
 
@@ -65,12 +72,17 @@ const story = {
     storyTitle.textContent = currentStory.title;
     storyText.textContent = currentStory.text;
     choicesContainer.innerHTML = ""; // Clear old buttons
-    console.log(currentStory.img)
-    imageContainer.setAttribute('src', currentStory.img);
+    
     currentStory.choices.forEach(choice => {
       const button = document.createElement("button");
       button.textContent = choice.text;
-      button.onclick = () => renderStory(choice.next);
+      button.onclick = () => {
+        if (choice.action) {
+          choice.action(); // Kör action om den finns
+        } else {
+        renderStory(choice.next);
+      } 
+    };
       choicesContainer.appendChild(button);
     });
   }
@@ -132,3 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const savedStory = localStorage.getItem("currentStory");
         renderStory(savedStory ? parseInt(savedStory, 10) : 1);
     }
+    if(event.target.id==='startover')
+      {
+          title.style.display='none'
+          localStorage.removeItem("currentStory");
+          localStorage.removeItem("playerName")
+          playerNameInput.value='';
+          gameContainer.style.display='none'
+          gameStartContainer.style.display='block'
+          playerNameInput.style.display='inline-block';
+          startbutton.text="Börja och spela"
+      }
+
+      

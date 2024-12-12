@@ -47,7 +47,7 @@
 
 #player-name {
     border: solid;
-    border-radius: 20px;
+    border-radius: 10px;
     border-width: 5px;
     border-color: #ff418d;
     background-color: #ffffff;
@@ -161,10 +161,10 @@ body {
 }
 
 #image-container {
-    top: 19%;
-    max-width: 40%;
+    top: 15%;
+    max-width: 35%;
     height: auto;
-    margin:0 auto 0 450px;
+    margin:0 auto 0 500px;
     border-radius: 50%;
     box-shadow: 15px 0px 30px rgba(0, 0, 0, 0.8);
 }
@@ -173,7 +173,7 @@ body {
     grid-area: a;
     position: absolute;
     top: 10%;
-    left: 8%;
+    left: 13%;
     
 }
 
@@ -221,8 +221,8 @@ body {
 
 #shoe-image {
     position:absolute;
-    left: 245px;
-    margin-top: 50px;
+    left: 325px;
+    margin-top: 60px;
     border: solid;
     border-radius: 30px;
     border-color: white;
@@ -242,6 +242,7 @@ body {
 }
 
 #game-image {
+    width: auto;
     max-width: 100%;
     height: 90%;
     border-radius: 30pc;
@@ -278,17 +279,17 @@ body {
     display: flex;
     position:fixed;
     top: 110%;
-    left: 36%;
+    left: 40%;
     text-align: center;
-    font-size: 25px;
+    font-size: 22px;
     margin: 0;
     font-family: "The Girl Next Door", cursive;
     font-weight: bolder;
-    padding: 10px 20px;
+    padding: 0px 10px;
     color: rgb(255, 255, 255);
     background-color: #ff3f8c;
-    border: solid;
-    border-radius: 50%;
+    border: solid 3px;
+    border-radius: 20px;
     border-color: #ffffff;
     box-shadow: 10px 5px 20px #262626;
     cursor: pointer;

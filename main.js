@@ -65,18 +65,6 @@ const story = {
       choices: [{ text: "Börja om", next: 1 }]
     }
   };
-  // story[3] = {
-  //   title: "Ett svårt val",
-  //   text: "Vid midnatt måste Askungen fly. Hennes sko fastnar i trappan. Vad ska hon göra?",
-  //   img:"/images/img3.jpg",
-  //   choices: [
-  //     {
-  //       text: "Ta skon",
-  //       next: 5, // Nästa del av berättelsen
-  //       action: () => showShoeOption(5) // Aktivera sko-funktionen
-  //     }
-  //   ]
-  // }
 
   // Render story
   function renderStory(storyId) {

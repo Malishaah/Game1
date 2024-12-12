@@ -11,6 +11,8 @@ const video = document.createElement('video');
 const startbutton = document.querySelector('.start-button');
 const imageContainer = document.getElementById('image-container')
 const shoeContainer = document.getElementById("shoe-container");
+const gameImage = document.getElementById('game-image');
+
 
 //video bakgrund
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,8 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
       playerNameInput.value=savedName;
       startbutton.text="Fortsätt"
     }
+    gameImage.addEventListener('click', () => {
+        gameImage.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            gameImage.style.transform = 'scale(1)';
+        }, 300);
+    });
 });
-
+/**
+ * En array som innehåller berättelsens delar och valmöjligheter.
+ * @type {Object.<number, {title: string, img: string, text: string, choices: Array.<{text: string, next: number, action?: function}>}>}
+ */
 const story = {
     1: {
       title: "Början av resan",
@@ -66,34 +77,10 @@ const story = {
     }
   };
 
-  // Render story
-  function renderStory(storyId) {
-    const currentStory = story[storyId];
-    localStorage.setItem("currentStory", storyId); // Save progress
-    storyTitle.textContent = currentStory.title;
-    storyText.textContent = currentStory.text;
-    choicesContainer.innerHTML = ""; // Clear old buttons
-    imageContainer.setAttribute('src',currentStory.img);
-    console.log(currentStory)
-    currentStory.choices.forEach(choice => {
-      const button = document.createElement("button");
-      button.textContent = choice.text;
-      button.className='next-button'
-      button.onclick = () => {
-        if (choice.action) {
-          choice.action(); // Kör action om den finns
-        } else {
-        renderStory(choice.next);
-      } 
-    };
-      choicesContainer.appendChild(button);
-    });
-  }
   
 //musik
  const music = new Audio('/musics/story-music.wav');
     music.loop = true;
-
     const toggleMusicButton = document.getElementById('toggle-music-button');
     let isMusicPlaying = false;
 
@@ -116,15 +103,6 @@ const story = {
         console.error('Kan inte hitta musikknappen i DOM:en.');
     }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const gameImage = document.getElementById('game-image');
-    gameImage.addEventListener('click', () => {
-        gameImage.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            gameImage.style.transform = 'scale(1)';
-        }, 300);
-    });
-});
 
 //second page
   settingsButton.addEventListener('click', () => {
@@ -161,7 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
         
-    // Funktion för att visa skon och hantera klick
+/**
+ * Visar skon och hanterar interaktion för att ta skon.
+ * @param {number} nextStoryId - ID för nästa del av berättelsen.
+ */
+
   function showShoeOption(nextStoryId) {
   const shoeContainer = document.getElementById("shoe-container");
   const shoeImage = document.getElementById("shoe-image");
@@ -180,4 +162,30 @@ document.addEventListener('DOMContentLoaded', () => {
     shoeContainer.style.display = "none";
     choicesContainer.appendChild(button);
   };
+}
+/**
+ * Renderar en specifik del av berättelsen baserat på dess ID.
+ * @param {number} storyId - ID för berättelsen som ska renderas.
+ */
+function renderStory(storyId) {
+  const currentStory = story[storyId];
+  localStorage.setItem("currentStory", storyId); // Save progress
+  storyTitle.textContent = currentStory.title;
+  storyText.textContent = currentStory.text;
+  choicesContainer.innerHTML = ""; // Clear old buttons
+  imageContainer.setAttribute('src',currentStory.img);
+  console.log(currentStory)
+  currentStory.choices.forEach(choice => {
+    const button = document.createElement("button");
+    button.textContent = choice.text;
+    button.className='next-button'
+    button.onclick = () => {
+      if (choice.action) {
+        choice.action(); // Kör action om den finns
+      } else {
+      renderStory(choice.next);
+    } 
+  };
+    choicesContainer.appendChild(button);
+  });
 }
